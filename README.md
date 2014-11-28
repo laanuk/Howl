@@ -1,7 +1,7 @@
 Howl
 ====
 
-http://hackdukefall2014.challengepost.com/submissions/30126-howl?utm_campaign=hackduke-fall-2014-code-for-good_20141031&utm_content=submission_visible_in_gallery&utm_medium=email&utm_source=transactional
+![screenshot](laanuk.github.com/Howl/Howl scrnshot.JPG)
 
 Wulfram Alpha app for voice commands
 
