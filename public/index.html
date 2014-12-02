@@ -1,5 +1,5 @@
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,105 +9,104 @@
     <link href = "css/form.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="microphone/microphone.min.css">
-  </head>
-  <body style="text-align: center;">
+</head>
+<body style="text-align: center;">
     <div class="site-wrapper">
 
-      <div class="site-wrapper-inner">
+        <div class="site-wrapper-inner">
 
-        <div class="cover-container">
+            <div class="cover-container">
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Howl</h1>
-            <p class="lead">Tell us about your math problems.</p>
-          </div>
-    <center><div id="microphone"></div></center>
-    <pre id="result"></pre>
-    <div id="info"></div>
-    <div id="error"></div>
-    <script src="microphone/microphone.min.js"></script>
+                <div class="inner cover">
+                    <h1 class="cover-heading">Howl</h1>
+                    <p class="lead">Tell us about your math problems.</p>
+                </div>
+                <center><div id="microphone"></div></center>
+                <pre id="result"></pre>
+                <div id="info"></div>
+                <div id="error"></div>
+                <script src="microphone/microphone.min.js"></script>
 
-    <script>
-      var mic = new Wit.Microphone(document.getElementById("microphone"));
-      var info = function (msg) {
-        document.getElementById("info").innerHTML = msg;
-      };
-      var error = function (msg) {
-        document.getElementById("error").innerHTML = msg;
-      };
-      info("Microphone is not ready yet");
-      mic.onready = function () {
-        info("Microphone is ready to record");
-      };
-      mic.onaudiostart = function () {
-        info("Recording started");
-        error("");
-      };
-      mic.onaudioend = function () {
-        info("Recording stopped, processing started");
-      };
-      mic.onresult = function (intent, entities) {
-        var r = kv("intent", intent);
+                <script>
+                var mic = new Wit.Microphone(document.getElementById("microphone"));
+                var info = function (msg) {
+                    document.getElementById("info").innerHTML = msg;
+                };
+                var error = function (msg) {
+                    document.getElementById("error").innerHTML = msg;
+                };
+                info("Microphone is not ready yet");
+                mic.onready = function () {
+                    info("Microphone is ready to record");
+                };
+                mic.onaudiostart = function () {
+                    info("Recording started");
+                    error("");
+                };
+                mic.onaudioend = function () {
+                    info("Recording stopped, processing started");
+                };
+                mic.onresult = function (intent, entities) {
+                    var r = kv("intent", intent);
 
-        for (var k in entities) {
-          var e = entities[k];
+                    for (var k in entities) {
+                        var e = entities[k];
 
-          if (!(e instanceof Array)) {
-            r += kv(k, e.value);
-          } else {
-            for (var i = 0; i < e.length; i++) {
-              r += kv(k, e[i].value);
-            }
-          }
-        }
-        document.getElementById("result").innerHTML = entities.wolfram_search_query.value + "\n";
-        queryWA(entities.wolfram_search_query.value);
-      };
-      mic.onerror = function (err) {
-        error("Error: " + err);
-      };
-      mic.onconnecting = function () {
-        info("Microphone is connecting");
-      };
-      mic.ondisconnected = function () {
-        info("Microphone is not connected");
-      };
+                        if (!(e instanceof Array)) {
+                            r += kv(k, e.value);
+                        } else {
+                            for (var i = 0; i < e.length; i++) {
+                                r += kv(k, e[i].value);
+                            }
+                        }
+                    }
+                    document.getElementById("result").innerHTML = intent;
+                    queryWA(intent);
 
-      mic.connect("NCSAOGKD5XIIAJSUCQCAK4PZ724UFBSS");
-       //mic.start();
-       //mic.stop();
 
-      function kv (k, v) {
-        if (toString.call(v) !== "[object String]") {
-          v = JSON.stringify(v);
-        }
-        return k + "=" + v + "\n";
-      }
+                };
+                mic.onerror = function (err) {
+                    error("Error: " + err);
+                };
+                mic.onconnecting = function () {
+                    info("Microphone is connecting");
+                };
+                mic.ondisconnected = function () {
+                    info("Microphone is not connected");
+                };
 
-      function queryWA(query) {
-        var wAlphaURL = "http://api.wolframalpha/v2/query?input=" + query;
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-          console.log(request.responseText);
-        };
-        request.open("GET", wAlphaURL, true);
-        request.send();
-      };
-    </script>
-    <div class="mastfoot">
-      <div class="inner">
-        <p>HackDuke Fall 2014 | Powered by WolframAlpha</p>
-      </div>
-  </div>
-  </div>
-</div>
+                mic.connect("NCSAOGKD5XIIAJSUCQCAK4PZ724UFBSS");
+                //mic.start();
+                //mic.stop();
+
+                function kv (k, v) {
+                    if (toString.call(v) !== "[object String]") {
+                        v = JSON.stringify(v);
+                    }
+                    return k + "=" + v + "\n";
+                }
+
+                function queryWA(query) {
+                    var wAlphaURL = "http://www.wolframalpha.com/input/?i=" + query;
+                    window.location.href = wAlphaURL;
+                };
+
+
+            </script>
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>HackDuke Fall 2014 | Powered by WolframAlpha</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script>
-$('#animatedElement').click(function() {
-  $(this).addClass("insertAnimation");
-});
+    $('#animatedElement').click(function() {
+        $(this).addClass("insertAnimation");
+    });
 </script>
-  </body>
-  </html>
+</body>
+</html>
