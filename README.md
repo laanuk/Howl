@@ -1,7 +1,7 @@
 Howl
 ====
 
-![](laanuk.github.com/laanuk/Howl/blob/master/Howl scrnshot.JPG)
+![](https://github.com/laanuk/Howl/blob/master/Howl scrnshot.JPG)
 
 Wulfram Alpha app for voice commands
 
