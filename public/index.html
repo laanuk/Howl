@@ -25,6 +25,7 @@
                 <pre id="result"></pre>
                 <div id="info"></div>
                 <div id="error"></div>
+                <div id="answer"></div>
                 <script src="microphone/microphone.min.js"></script>
 
                 <script>
@@ -61,8 +62,7 @@
                         }
                     }
                     document.getElementById("result").innerHTML = intent;
-                    queryWA(intent);
-
+                    window.location.href = 'answer.html?' + intent;
 
                 };
                 mic.onerror = function (err) {

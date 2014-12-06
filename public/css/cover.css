@@ -140,7 +140,13 @@ img:hover {
     width: 50%;
     height: 80%; /* For at least Firefox */
     min-height: 100%;
+    resize:both;
+    overflow:auto;
     -webkit-box-shadow: inset 0 0 100px rgba(255,255,255,.1);
             box-shadow: inset 0 0 100px rgba(255,255,255,.1);
 
+}
+
+#answerPage img {
+    
 }

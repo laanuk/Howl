@@ -11,9 +11,29 @@
     <link rel="stylesheet" href="css/animations.css">
   </head>
   <body>
-      <div id="answerPage" class="slideUp">
-      //insert answer from wolfram api here
-      //Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      
+      <div id="answers" class="slideUp">
+          <script>
+                xmlhttp=new XMLHttpRequest();
+                xmlhttp.open("GET", '/query' + '?' + window.location.search,true);
+                xmlhttp.send();
+                console.log("first get sent");
+                results = [];
+
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4) {
+
+                        var response = xmlhttp.responseText;
+                        results = response.split(',');
+                        console.log(results);
+                        for (var i = 0; i < results.length; i++) {
+                            var img = document.createElement("img");
+                            img.src = results[i];
+                            var src = document.getElementById("answers").appendChild(img);
+
+                        }
+                    }
+                }
+          </script>
+
   </body>
   </html>
