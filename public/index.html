@@ -61,9 +61,16 @@
                             }
                         }
                     }
-                    document.getElementById("result").innerHTML = intent;
-                    window.location.href = 'answer.html?' + intent;
+                    var text = String(intent);
 
+                    if ("undefined" == text) {
+                        console.log('works');
+                        document.getElementById("result").innerHTML = intent;
+                        //window.location.href = 'answer.html?' + intent;
+                    } else {
+                        document.getElementById("result").innerHTML = r;
+                        window.location.href = 'answer.html?' + entities.wolfram_search_query.value;
+                    }
                 };
                 mic.onerror = function (err) {
                     error("Error: " + err);

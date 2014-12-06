@@ -137,8 +137,8 @@ img:hover {
     margin: 0 auto;
     margin-top: 250px;
     display: table;
-    width: 50%;
-    height: 80%; /* For at least Firefox */
+    width: 500px;
+    height: 500px; /* For at least Firefox */
     min-height: 100%;
     resize:both;
     overflow:auto;
@@ -148,5 +148,5 @@ img:hover {
 }
 
 #answerPage img {
-    
+
 }

@@ -10,13 +10,18 @@
     <link href = "css/form.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animations.css">
   </head>
+
   <body>
-      <div id="answers" class="slideUp">
+      <div class="inner cover">
+          <h1 class="cover-heading">Howl</h1>
+          <p class="lead">Tell us about your math problems.</p>
+      </div>
+      <div id="answerPage" class="slideUp">
           <script>
                 xmlhttp=new XMLHttpRequest();
-                xmlhttp.open("GET", '/query' + '?' + window.location.search,true);
+                xmlhttp.open("GET", '/query' + window.location.search,true);
+                console.log(window.location.search);
                 xmlhttp.send();
-                console.log("first get sent");
                 results = [];
 
                 xmlhttp.onreadystatechange = function() {
@@ -24,11 +29,14 @@
 
                         var response = xmlhttp.responseText;
                         results = response.split(',');
+                        console.log(xmlhttp.responseText);
                         console.log(results);
                         for (var i = 0; i < results.length; i++) {
                             var img = document.createElement("img");
+                            //var br = document.createElement("br");
                             img.src = results[i];
-                            var src = document.getElementById("answers").appendChild(img);
+                            var src = document.getElementById("answerPage").appendChild(img);
+                            //var pls = document.getElementBy("answerPage").appendChild(br);
 
                         }
                     }
