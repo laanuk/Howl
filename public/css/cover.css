@@ -135,7 +135,7 @@ img:hover {
 /* Answer Page*/
 #answerPage {
     margin: 0 auto;
-    margin-top: 250px;
+    margin-top: 0px;
     display: table;
     width: 500px;
     height: 500px; /* For at least Firefox */
