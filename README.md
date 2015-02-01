@@ -1,7 +1,7 @@
 Howl
 ====
 
-![](https://github.com/laanuk/Howl/blob/master/screenshot.JPG)
+![](https://github.com/laanuk/Howl/blob/master/Cover%20Shot.png)
 
 WolframAlpha web application with voice integration [Visit Howl!](https://mighty-lowlands-2640.herokuapp.com/)
 
